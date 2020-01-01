@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background: url(../images/nightsky.jpg);
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.category{
+    font-size: 28px;
+    color: black;
+    text-align: center;
+    margin: 30px auto;
+    padding-bottom: 5px solid black;
+}
+
+.phrase{
+	height: 100px;
+}
+
+.bad-guess{
+
+}
+
+.final-message{
+
+}
+
+#alphabet-btns{
+	overflow: inherit;
+	margin: 10px auto;
+	padding: 0px 10%;
+}
+
+section > div > button{
+	background-color: rgb(179, 140, 36);
+	color: bisque;
+	font-weight: bold;
+	height: 30px;
+	font-family: 'Audiowide', cursive;
+	margin: 5px;
+}
+
+section > div > button:hover{
+	background-color: rgb(212, 194, 30);
+}
+
+section > div > button:active{
+	background-color: rgb(175, 145, 61);
+	
+}
+
+section > div > button:visited{
+	background-color: rgb(7, 7, 6);
+	
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	height: 250px;
+}
+
+.guesses-remaining{
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.counter{
+	text-align: center;
+	font-family: 'Audiowide', cursive;
+	font-weight: bold;
+	color: bisque;
+	letter-spacing: 2px;
+	font-size: 22px;
+	margin: 45px;
+}
+
+#counter{
+	font-size: 40px;
+	color: rgb(126, 41, 41);
+}

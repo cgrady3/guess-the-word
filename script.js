@@ -12,7 +12,11 @@ var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
     'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
     'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var category;          // Selected category
-
+var categories = [
+    ["holodeck", "suttlecraft", "tricorder", "enterprise", "betazoid", "data", "starfleet"],
+    ["wormhole", "bajoran", "emissary", "phasers", "ferengi"],
+    ["borg", "assimilate", "subspace", "voyager", "transporter"]
+];
 var guessCounter = 0;   // Counts number of correct guesses
 var guess;              // User guess
 var guesses = [];       // Stored guesses array
@@ -79,19 +83,32 @@ var displayCategory = function () {
 
 // Give user hints
 getHint.onclick = function () {
-    var categories = [
-        ["holodeck", "suttlecraft", "tricorder", "enterprise", "betazoid", "data", "starfleet"],
-        ["wormhole", "bajoran", "emissary", "phasers", "ferengi"],
-        ["borg", "assimilate", "subspace", "voyager", "transporter"]
-    ];
     var hints = [
         ["Where Images and Stories Come To Life", "Transport For Away Missions", "Hand-Held Sensor Scanner", "Ships Name", "Counselor's Species", "Ships Android", "Human's Space Program"],
         ["Connects to the Gamma Quadrant", "Species That Owns DS9", "Captain Sysco's Connection to The Prophets", "Space 'Guns'", "Bar Owner's Species"],
         ["You Will Be Assimilated", "How Borg Grow Their Species", "Through Where You Send Long Range Messages", "Ships Name", "Turns You Into Molecules To Take You Somewhere Else"]
     ];
 
+    // Gets index of randomly chosen inner and outer hints array
     var categoryIndex = categories.indexOf(category);
     var hintIndex = category.indexOf(word);
 
-    displayHint.innerHTML = `Clue: ${hints[categoryIndex][hintIndex]}`
+    displayHint.innerHTML = `Clue: ${hints[categoryIndex][hintIndex]}`;
+}
+
+// User lives display and game status comments
+var gameComments = function(){
+
+    // Write to HTML how many guesses the user has left
+    displayLives.innerHTML = `You have ${lives} guesses remaining`;
+
+    // If conditional for when no guesses remain
+    if (lives < 1)
+        displayLives.innerHTML = 'Game Over';
+    
+    // If statement with in for loop determines if user has guessed the whole word yet
+    for (let i = 0; i < guesses.length; i++){
+        if (counter + space === guesses.length)
+            displayLives.innerHTML = 'You Guessed the Secret Word!';
+    }
 }

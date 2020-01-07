@@ -8,13 +8,11 @@ var wordContainer = document.getElementById('holder');
 var reset = document.getElementById('reset');
 
 // Variables
-var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
-            'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 
-            'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var categorie;          // Selected category
-var categories = [["holodeck", "suttlecraft", "tricorder", "enterprise", "betazoid", "data", "starfleet"],
-    ["wormhole", "bajoran", "emissary", "phasers", "ferengi"],
-    ["borg", "assimilate", "subspace", "voyager", "transporter"]];     
+var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+    'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+    'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var category;          // Selected category
+
 var guessCounter = 0;   // Counts number of correct guesses
 var guess;              // User guess
 var guesses = [];       // Stored guesses array
@@ -25,7 +23,7 @@ var word;               // Secret word
 // Functions
 
 // Create buttons from alphabet array
-var buttons = function (){
+var buttons = function () {
     // Create a list element
     let list = document.createElement('li');
 
@@ -37,9 +35,9 @@ var buttons = function (){
 
     // Create an ID for the unordered list
     letters.id = 'alphabet';
-    
+
     // Use for loop to traverse the alphabet array
-    for (let i = 0; i < alphabet.length; i++){
+    for (let i = 0; i < alphabet.length; i++) {
 
         // Write the alphabet array element to the alphabet list
         list.innerHTML = alphabet[i];
@@ -51,12 +49,12 @@ var buttons = function (){
 }
 
 // Randomize the category and secret word
-var randomizeWord = function(){
+var randomizeWord = function () {
     // Randomly chooses the index of the categories array's outer array
-    categorie = categories[Math.floor(Math.random() * categories.length)];
+    category = categories[Math.floor(Math.random() * categories.length)];
 
     // Randomly chooses the index of the categores array's inner array
-    word = categorie[Math.floor(Math.random() * categorie.length)];
+    word = category[Math.floor(Math.random() * category.length)];
 
     // Replace chosen word's letters with spaces
     word = word.replace(/\s/g, '-');
@@ -66,15 +64,34 @@ var randomizeWord = function(){
 }
 
 // Display Selected Category
-var displayCategory = function(){
+var displayCategory = function () {
     // Using 'if' statement to equate category titles to categories array outer index's
-    if (chosenCategory === categories[0]) {
+    if (category === categories[0]) {
         catagoryName.innerHTML = "The Chosen Category Is Star Trek: Next Generation";
-      } 
-      else if (chosenCategory === categories[1]) {
+    }
+    else if (category === categories[1]) {
         catagoryName.innerHTML = "The Chosen Category Is Star Trek: Deep Space Nine";
-      } 
-      else if (chosenCategory === categories[2]) {
+    }
+    else if (category === categories[2]) {
         catagoryName.innerHTML = "The Chosen Category Is Star Trek: Voyager";
-      }
+    }
+}
+
+// Give user hints
+getHint.onclick = function () {
+    var categories = [
+        ["holodeck", "suttlecraft", "tricorder", "enterprise", "betazoid", "data", "starfleet"],
+        ["wormhole", "bajoran", "emissary", "phasers", "ferengi"],
+        ["borg", "assimilate", "subspace", "voyager", "transporter"]
+    ];
+    var hints = [
+        ["Where Images and Stories Come To Life", "Transport For Away Missions", "Hand-Held Sensor Scanner", "Ships Name", "Counselor's Species", "Ships Android", "Human's Space Program"],
+        ["Connects to the Gamma Quadrant", "Species That Owns DS9", "Captain Sysco's Connection to The Prophets", "Space 'Guns'", "Bar Owner's Species"],
+        ["You Will Be Assimilated", "How Borg Grow Their Species", "Through Where You Send Long Range Messages", "Ships Name", "Turns You Into Molecules To Take You Somewhere Else"]
+    ];
+
+    var categoryIndex = categories.indexOf(category);
+    var hintIndex = category.indexOf(word);
+
+    displayHint.innerHTML = `Clue: ${hints[categoryIndex][hintIndex]}`
 }

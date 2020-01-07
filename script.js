@@ -65,4 +65,16 @@ var randomizeWord = function(){
 
 }
 
-randomizeWord();
+// Display Selected Category
+var displayCategory = function(){
+    // Using 'if' statement to equate category titles to categories array outer index's
+    if (chosenCategory === categories[0]) {
+        catagoryName.innerHTML = "The Chosen Category Is Star Trek: Next Generation";
+      } 
+      else if (chosenCategory === categories[1]) {
+        catagoryName.innerHTML = "The Chosen Category Is Star Trek: Deep Space Nine";
+      } 
+      else if (chosenCategory === categories[2]) {
+        catagoryName.innerHTML = "The Chosen Category Is Star Trek: Voyager";
+      }
+}

@@ -111,7 +111,7 @@ table {
     margin: 0;
     display: inline-block;
     padding: 0 10px;
-    font-size: 1.6em;
+    font-size: 30px;
 }
 .active {
     opacity: 0.4;
@@ -133,7 +133,7 @@ button {
     background: #c1d72e;
     color: #1b1b1f;
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 20px;
 	padding: 18px 10px;
     width: 180px;
     margin: 10px;
@@ -179,3 +179,99 @@ button:hover {
 	font-size: 40px;
 }
 
+@media screen and (max-width: 768px) {
+    body{
+		max-width: 760px;
+		margin: auto;
+	}
+
+	.banner>img{
+		width: 600px;
+		height: 250px;
+	}
+}
+
+@media screen and (max-width: 425px){
+	body{
+		max-width: 370px;
+		margin: auto;
+		font-size: 18px;
+	}
+
+	.banner>img{
+		width: 400px;
+		height: 150px;
+	}
+
+	#alphabet{
+		width: 365px;
+		padding-left: 30px;
+	}
+
+	#alphabet>li {
+		padding: 2px 2px 25px 2px;
+		width: 25px;
+		height: 20px;
+   }
+
+   button{
+	   padding: 12px;
+	   width: 120px;
+	   font-size: 16px;
+   }
+
+   #secretWord>li{
+	   font-size: 16px;
+   }
+
+   #categoryName{
+	   font-size: 20px;
+   }
+}
+
+@media screen and (max-width: 375px){
+	body{
+		max-width: 370px;
+		margin: auto;
+		font-size: 18px;
+	}
+
+	.banner>img{
+		width: 350px;
+		height: 120px;
+	}
+
+	#alphabet{
+		width: 365px;
+	}
+
+	#alphabet>li {
+		padding: 2px 2px 25px 2px;
+		width: 25px;
+		height: 20px;
+   }
+
+   button{
+	   padding: 12px;
+	   width: 120px;
+	   font-size: 16px;
+   }
+
+   #secretWord>li{
+	   font-size: 16px;
+   }
+
+   #categoryName{
+	   font-size: 20px;
+   }
+
+   #clue{
+	   font-size: 20px;
+   }
+}
+
+@media screen and (max-width: 375px){
+	#categoryName, #holder, .container{
+		justify-self: center;
+	}
+}

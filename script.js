@@ -137,7 +137,7 @@ window.onload = function () {
     gameComments = function () {
 
         // Write to HTML how many guesses the user has left
-        displayLives.innerHTML = `You have ${lives} guesses remaining`;
+        displayLives.innerHTML = lives;
 
         // If conditional for when no guesses remain
         if (lives < 1)
@@ -153,7 +153,7 @@ window.onload = function () {
     // Store user guesses in guesses array
     userGuesses = function () {
 
-        var wordContainer = document.getElementById('holder');
+        wordContainer = document.getElementById('holder');
 
         // Create an unordered list element withing the word container
         correctGuess = document.createElement('ul');
@@ -190,7 +190,7 @@ window.onload = function () {
         correctGuess.parentNode.removeChild(correctGuess);
         letterButtons.parentNode.removeChild(letterButtons);
         displayHint.innerHTML = '';
-        play();
+        location.reload();
     }
 
     // Play game function
@@ -200,7 +200,7 @@ window.onload = function () {
         counter = 0;
         space = 0;
         lives = 10;
-        
+
         categories = [
             ["holodeck", "suttlecraft", "tricorder", "enterprise", "betazoid", "data", "starfleet"],
             ["wormhole", "bajoran", "emissary", "phasers", "ferengi"],

@@ -34,6 +34,7 @@ body {
 	font-family: 'Audiowide', cursive;
 	height: 100%;
 	text-align: center;
+	font: 18px;
 }
 ol, ul {
 	list-style: none;
@@ -51,5 +52,121 @@ table {
 	border-spacing: 0;
 }
 
+.banner>img {
+	height: 250px;
+	width:900px;
+}
 
+.wrappper {
+    width: 100%;
+    margin: 0 auto;
+}
+.wrappper:after {
+    content: "";
+    display: table;
+	clear: both;
+}
+
+#alphabet {
+    margin: 15px auto;
+    padding: 10px;
+    max-width: 900px;
+}
+
+#alphabet:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#alphabet li {
+	float: left;
+	text-align: center;
+    margin: 0 10px 10px 0;
+    list-style: none;
+    width: 35px;
+    height: 30px;
+    padding: 10px 10px 30px 10px;
+    background: #a1870f;
+    color: #1b1b1f;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#alphabet li:hover {
+    background: #c1d72e;
+    color: #1b1b1f;
+}
+
+#secretWord {
+    margin: 0;
+    display: block;
+    padding: 0;
+    display: block;
+}
+
+#secretWord li {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 1.6em;
+}
+.active {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.active:hover {
+    opacity: 0.4;
+}
+
+#mylives {
+    font-size: 30px;
+    text-align: center;
+    display: block;
+}
+
+button {
+    border-radius: 5px;
+    background: #a1870f;
+    color: #1b1b1f;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 18px 10px;
+    width: 180px;
+    margin: 10px;
+    outline: none;
+}
+
+button:hover {
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+	color: #c1d72e;
+}
+
+#categoryName{
+	font-size: 28px;
+	color: #fff;
+	margin: 20px;
+}
+
+#message{
+	font-size: 28px;
+	color: #fff;
+	margin: 20px;
+}
+
+#myLives{
+	color: #751515;
+	font-size: 40px;
+}
+
+#clue{
+	font-size: 28px;
+	color: #fff;
+	margin: 10px;
+}
 

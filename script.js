@@ -6,6 +6,7 @@ window.onload = function () {
     var getHint = document.getElementById('hint');
     var displayHint = document.getElementById('clue');
     var reset = document.getElementById('reset');
+    var finalMessage = document.getElementById('finalMessage');
 
     // Variables
     var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
@@ -38,9 +39,6 @@ window.onload = function () {
 
             // Create a list element
             list = document.createElement('li');
-
-            // Create an ID for the list element
-            list.id = 'letter'
 
             // Write the alphabet array element to the alphabet list
             list.innerHTML = alphabet[i];
@@ -140,13 +138,15 @@ window.onload = function () {
         displayLives.innerHTML = lives;
 
         // If conditional for when no guesses remain
-        if (lives < 1)
-            displayLives.innerHTML = 'Game Over';
+        if (lives < 1){
+            finalMessage.innerHTML = 'Game Over';
+        return;
+        }
 
         // If statement with in for loop determines if user has guessed the whole word yet
         for (let i = 0; i < guesses.length; i++) {
             if (counter + space === guesses.length)
-                displayLives.innerHTML = 'You Guessed the Secret Word!';
+                finalMessage.innerHTML = 'You Guessed the Secret Word!';
         }
     }
 

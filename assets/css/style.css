@@ -53,14 +53,13 @@ table {
 }
 
 .banner>img {
-	height: 250px;
+	height: 220px;
 	width:900px;
 }
 
 .wrappper {
     width: 100%;
 	margin: 0 auto;
-	
 }
 .wrappper:after {
     content: "";
@@ -71,7 +70,7 @@ table {
 #alphabet {
     margin: 15px auto;
     padding: 10px;
-	max-width: 900px;
+	max-width: 450px;
 }
 
 #alphabet:after {
@@ -91,12 +90,12 @@ table {
     background: #c1d72e;
     color: #1b1b1f;
     cursor: pointer;
-    border-radius: 5px;
+	border-radius: 5px;
 }
 
 #alphabet li:hover {
     background: #c1d72e;
-    color: #1b1b1f;
+	color: #1b1b1f;
 }
 
 #secretWord {
@@ -134,9 +133,8 @@ button {
     background: #c1d72e;
     color: #1b1b1f;
     text-decoration: none;
-    cursor: pointer;
     font-size: 1.2em;
-    padding: 18px 10px;
+	padding: 18px 10px;
     width: 180px;
     margin: 10px;
     outline: none;
@@ -174,5 +172,10 @@ button:hover {
 .guess{
 	color: #2718aa;
 	font-size: 20px;
+}
+
+#finalMessage{
+	color: #751515;
+	font-size: 40px;
 }
 

@@ -12,7 +12,9 @@ var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
             'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 
             'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var categorie;          // Selected category
-var categories;         // Categories array
+var categories = [["holodeck", "suttlecraft", "tricorder", "enterprise", "betazoid", "data", "starfleet"],
+    ["wormhole", "bajoran", "emissary", "phasers", "ferengi"],
+    ["borg", "assimilate", "subspace", "voyager", "transporter"]];     
 var guessCounter = 0;   // Counts number of correct guesses
 var guess;              // User guess
 var guesses = [];       // Stored guesses array
@@ -47,3 +49,20 @@ var buttons = function (){
         letters.appendChild(list);
     }
 }
+
+// Randomize the category and secret word
+var randomizeWord = function(){
+    // Randomly chooses the index of the categories array's outer array
+    categorie = categories[Math.floor(Math.random() * categories.length)];
+
+    // Randomly chooses the index of the categores array's inner array
+    word = categorie[Math.floor(Math.random() * categorie.length)];
+
+    // Replace chosen word's letters with spaces
+    word = word.replace(/\s/g, '-');
+
+    console.log(word);
+
+}
+
+randomizeWord();

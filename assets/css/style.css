@@ -59,7 +59,8 @@ table {
 
 .wrappper {
     width: 100%;
-    margin: 0 auto;
+	margin: 0 auto;
+	
 }
 .wrappper:after {
     content: "";
@@ -70,7 +71,7 @@ table {
 #alphabet {
     margin: 15px auto;
     padding: 10px;
-    max-width: 900px;
+	max-width: 900px;
 }
 
 #alphabet:after {
@@ -87,7 +88,7 @@ table {
     width: 35px;
     height: 30px;
     padding: 10px 10px 30px 10px;
-    background: #a1870f;
+    background: #c1d72e;
     color: #1b1b1f;
     cursor: pointer;
     border-radius: 5px;
@@ -130,7 +131,7 @@ table {
 
 button {
     border-radius: 5px;
-    background: #a1870f;
+    background: #c1d72e;
     color: #1b1b1f;
     text-decoration: none;
     cursor: pointer;

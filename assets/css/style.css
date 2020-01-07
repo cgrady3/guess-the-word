@@ -68,13 +68,10 @@ table {
 
 }
 
-#alphabet-btns{
+#buttons{
 	overflow: inherit;
 	margin: 10px auto;
 	padding: 0px 10%;
-}
-
-section > div > button{
 	background-color: rgb(179, 140, 36);
 	color: bisque;
 	font-weight: bold;
@@ -83,11 +80,11 @@ section > div > button{
 	margin: 5px;
 }
 
-section > div > button:hover{
+#buttons:hover{
 	background-color: rgb(212, 194, 30);
 }
 
-section > div > button:active{
+#buttons:active{
 	background-color: rgb(175, 145, 61);
 	
 }

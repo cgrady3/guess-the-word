@@ -1,82 +1,49 @@
-// cache the DOM
+// Cache the DOM
 var guesses_remaining = 10;
-const secret_phrase_div = document.getElementsByClassName("phrase");
-const hangman_div = document.getElementsByClassName("hangman");
-const base_div = document.getElementById("base"); // could use numbers instead of words to index through revealing div?
-const stem_div = document.getElementById("stem");
-const top_div = document.getElementById("top");
-const rope_div = document.getElementById("rope");
-const head_div = document.getElementById("head");
-const body_div = document.getElementById("body");
-const left_leg_div = document.getElementById("left-leg");
-const right_leg_div = document.getElementById("right-leg");
-const left_arm_div = document.getElementById("left-arm");
-const right_arm_div = document.getElementById("right-arm");
-const wrong_guess_div = document.getElementsByClassName("bad-guess");
-const end_message_div = document.getElementsByClassName("final-message");
+var displayLives = document.getElementById('mylives');
+var getHint = document.getElementById('hint');
+var displayHint = document.getElementById('clue');
+var letterButtons = document.getElementById('buttons');
+var wordContainer = document.getElementById('holder');
+var reset = document.getElementById('reset');
 
-// secret phrase array
-const movies = ["mary poppins", "national treasure", "mean girls", "monsters inc.", "jurassic park"];
-var phrase = movies[Math.floor(Math.random()*movies.length)];
+// Variables
+var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
+            'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 
+            'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var categorie;          // Selected category
+var categories;         // Categories array
+var guessCounter = 0;   // Counts number of correct guesses
+var guess;              // User guess
+var guesses = [];       // Stored guesses array
+var lives = 10;         // User lives
+var spaces = 0;         // Number of spaces in secret word
+var word;               // Secret word
 
+// Functions
 
-// secret word display
-function hidden_display(phrase){
-    // underlines for each character
-    // '/' for each space
-    secret_phrase_div.innerHTML = phrase;
-}
+// Create buttons from alphabet array
+var buttons = function (){
+    // Create a list element
+    let list = document.createElement('li');
 
-document.onkeypress = function(letter){
-    // change user inputs to lower case
-    var guess = letter.key.toLowerCase();
+    // Create an ID for the list element
+    list.id = 'letter'
 
-    var found_letter = confirm(letter_compare(phrase, guess));
+    // Create an unordered list element for the alphabet array
+    let letters = document.createElement('ul');
 
-    if (found_letter == false)
-        bad_guess ();
-}
+    // Create an ID for the unordered list
+    letters.id = 'alphabet';
+    
+    // Use for loop to traverse the alphabet array
+    for (let i = 0; i < alphabet.length; i++){
 
-// check user guess against secret phrase 
-function letter_compare(phrase, letter){
-    var correct = 0;
-    for (i = 0; i < phrase.length; i++){
-        if (letter === phrase.charAt(i)){
-            letter_reveal(i);
-            correct ++;
-        }
+        // Write the alphabet array element to the alphabet list
+        list.innerHTML = alphabet[i];
+
+        // Add the letters to the buttons then the buttons to the list element
+        letterButtons.appendChild(letters);
+        letters.appendChild(list);
     }
-
-    if (correct > 0)
-        return 1;
-    else
-        return 0;
-}
-
-// correct guess is made
-function good_guess(){
-
-}
-
-// reveal the correct guess in the hidden phrase
-function letter_reveal(num){
-
-}
-
-// incorrect guess is made
-function bad_guess(){
-    guesses_remaining --;
-    wrong_guess_div.innerHTML = "you have " + guesses_remaining + "guesses remaining"
-}
-
-// add to hangman figure
-function build_man(){
-
-}
-
-// diplay win or loss outcome
-function final_message(){
-    if (guesses_remaining == 0)
-        end_message_div.innerHTML = "Game Over. You Lose";
-   
 }

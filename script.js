@@ -1,9 +1,10 @@
+window.onload = function(){
+
 // Cache the DOM
 var guesses_remaining = 10;
 var displayLives = document.getElementById('myLives');
 var getHint = document.getElementById('hint');
 var displayHint = document.getElementById('clue');
-var letterButtons = document.getElementById('buttons');
 var wordContainer = document.getElementById('holder');
 var reset = document.getElementById('reset');
 
@@ -11,25 +12,23 @@ var reset = document.getElementById('reset');
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
     'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
     'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var category;          // Selected category
-var categories = [
-    ["holodeck", "suttlecraft", "tricorder", "enterprise", "betazoid", "data", "starfleet"],
-    ["wormhole", "bajoran", "emissary", "phasers", "ferengi"],
-    ["borg", "assimilate", "subspace", "voyager", "transporter"]
-];
-var guessCounter = 0;   // Counts number of correct guesses
-//var guess;              // User guess
+var category;           // Selected category
+var categories;          // Array of categories
+var guessCounter;   // Counts number of correct guesses
+var guess;              // User guess
 var guesses = [];       // Stored guesses array
-var lives = 10;         // User lives
-var spaces = 0;         // Number of spaces in secret word
+var lives;         // User lives
+var spaces;         // Number of spaces in secret word
 var word;               // Secret word
 
 // Functions
 
 // Compare user guess to secret word
 var compare = function(){
+
     // using function within a function to making calling the function easier
     list.onclick = function(){
+        
         // Using 'this' keyword to acknowledge referece to the inner function being called here
         var guess = (this.innerHTML);
         
@@ -63,8 +62,16 @@ var compare = function(){
 // Create buttons from alphabet array
 var buttons = function () {
 
+    var letterButtons = document.getElementById('buttons');
+
+    // Create an unordered list element for the alphabet array
+    let letters = document.createElement('ul');
+
     // Use for loop to traverse the alphabet array
     for (let i = 0; i < alphabet.length; i++) {
+
+        // Create an ID for the unordered list
+        letters.id = 'alphabet';
 
         // Create a list element
         let list = document.createElement('li');
@@ -72,14 +79,11 @@ var buttons = function () {
         // Create an ID for the list element
         list.id = 'letter'
 
-        // Create an unordered list element for the alphabet array
-        let letters = document.createElement('ul');
-
-        // Create an ID for the unordered list
-        letters.id = 'alphabet';
-
         // Write the alphabet array element to the alphabet list
         list.innerHTML = alphabet[i];
+
+        // Call the comparison function
+        compare();
 
         // Add the letters to the buttons then the buttons to the list element
         letterButtons.appendChild(letters);
@@ -99,20 +103,19 @@ var randomizeWord = function () {
     word = word.replace(/\s/g, '-');
 
     console.log(word);
-
 }
 
 // Display Selected Category
 var displayCategory = function () {
     // Using 'if' statement to equate category titles to categories array outer index's
     if (category === categories[0]) {
-        catagoryName.innerHTML = "The Chosen Category Is Star Trek: Next Generation";
+        document.getElementById('categoryName').innerHTML = "The Chosen Category Is Star Trek: Next Generation";
     }
     else if (category === categories[1]) {
-        catagoryName.innerHTML = "The Chosen Category Is Star Trek: Deep Space Nine";
+        document.getElementById('categoryName').innerHTML = "The Chosen Category Is Star Trek: Deep Space Nine";
     }
     else if (category === categories[2]) {
-        catagoryName.innerHTML = "The Chosen Category Is Star Trek: Voyager";
+        document.getElementById('categoryName').innerHTML = "The Chosen Category Is Star Trek: Voyager";
     }
 }
 
@@ -178,4 +181,31 @@ var userGuesses = function () {
         wordContainer.appendChild(correctGuess);
         correctGuess.appendChild(guess);
     }
+}
+
+// Game reset function
+document.getElementById('gameReset').onclick = function(){
+    correctGuess.parentNode.removeChild(correctGuess);
+    letterButtons.parentNode.removeChild(letterButtons);
+    displayHint.innerHTML = '';
+    play();
+}
+
+// Play game function
+gamePlay = function(){
+    categories = [
+        ["holodeck", "suttlecraft", "tricorder", "enterprise", "betazoid", "data", "starfleet"],
+        ["wormhole", "bajoran", "emissary", "phasers", "ferengi"],
+        ["borg", "assimilate", "subspace", "voyager", "transporter"]
+    ];
+
+    randomizeWord();
+    buttons();
+    userGuesses();
+    gameComments();
+    displayCategory();
+}
+
+gamePlay();
+
 }

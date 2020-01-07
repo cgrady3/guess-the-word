@@ -29,8 +29,11 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+	line-height: 1.25;
 	background: url(../images/nightsky.jpg);
+	font-family: 'Audiowide', cursive;
+	height: 100%;
+	text-align: center;
 }
 ol, ul {
 	list-style: none;
@@ -48,77 +51,5 @@ table {
 	border-spacing: 0;
 }
 
-.category{
-    font-size: 28px;
-    color: black;
-    text-align: center;
-    margin: 30px auto;
-    padding-bottom: 5px solid black;
-}
 
-.phrase{
-	height: 100px;
-}
 
-.bad-guess{
-
-}
-
-.final-message{
-
-}
-
-#buttons{
-	overflow: inherit;
-	margin: 10px auto;
-	padding: 0px 10%;
-	background-color: rgb(179, 140, 36);
-	color: bisque;
-	font-weight: bold;
-	height: 30px;
-	font-family: 'Audiowide', cursive;
-	margin: 5px;
-}
-
-#buttons:hover{
-	background-color: rgb(212, 194, 30);
-}
-
-#buttons:active{
-	background-color: rgb(175, 145, 61);
-	
-}
-
-section > div > button:visited{
-	background-color: rgb(7, 7, 6);
-	
-}
-
-.center {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 50%;
-	height: 250px;
-}
-
-.guesses-remaining{
-	display: inline-block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.counter{
-	text-align: center;
-	font-family: 'Audiowide', cursive;
-	font-weight: bold;
-	color: bisque;
-	letter-spacing: 2px;
-	font-size: 22px;
-	margin: 45px;
-}
-
-#counter{
-	font-size: 40px;
-	color: rgb(126, 41, 41);
-}

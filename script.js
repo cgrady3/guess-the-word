@@ -18,7 +18,7 @@ window.onload = function () {
     var guess;              // User guess
     var guesses = [];       // Stored guesses array
     var lives;              // User lives
-    var spaces;             // Number of spaces in secret word
+    var space;             // Number of spaces in secret word
     var word;               // Secret word
 
     // Functions
@@ -139,7 +139,7 @@ window.onload = function () {
 
         // If conditional for when no guesses remain
         if (lives < 1){
-            finalMessage.innerHTML = 'Game Over';
+            finalMessage.innerHTML = `Game Over. The Secret Word Was: ${word}`;
         return;
         }
 
